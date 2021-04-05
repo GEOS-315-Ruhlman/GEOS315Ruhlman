@@ -171,11 +171,11 @@ fviz_pca_var(SampleSurvey_pca_est,
 # 8. You can plot PCA also grouped based on one of your categorical variables
 fviz_pca_biplot(SampleSurvey_pca_est,
                 geom.ind = "point", # show points only (but not "text")
-                col.ind = demographic_vector, # color by categorical variable
+                col.ind = chemicalTreatment_vector, # color by categorical variable
                 mean.point = FALSE, # Remove point that represents the mean of each group
                 addEllipses = TRUE, # add ellipses
                 col.var = "black", # make variables & arrows black (default is blue)
-                legend.title = "Hair Texture")  +
+                legend.title = "Chemical Treatment")  +
   theme_bw()
 
 
@@ -208,4 +208,5 @@ ggplot(HairData_2.0) +
   ylab("") +
   theme_bw() +
   ggtitle("Your Hair Pb Levels Compared to the Population") +
-  geom_vline(aes(xintercept = Pb[21]), linetype = "dashed", size = 2)
+  geom_vline(aes(xintercept = Pb[21]), linetype = "dashed", size = 2, color = "red") +
+  geom_vline(aes(xintercept = 6), linetype = "dotted", size = 2)
